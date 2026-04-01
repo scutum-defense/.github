@@ -1,0 +1,4 @@
+* @ScutumDefense/org-admins @ScutumDefense/architecture-council
+/.github/workflows/ @ScutumDefense/security-admins @ScutumDefense/release-managers
+/ISSUE_TEMPLATE/ @ScutumDefense/product-leads @ScutumDefense/release-managers
+/SECURITY.md @ScutumDefense/security-admins

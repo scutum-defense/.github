@@ -1,0 +1,36 @@
+name: ADR request
+description: Request an architecture decision
+title: "[ADR] "
+labels: ["type:docs"]
+body:
+  - type: textarea
+    id: decision
+    attributes:
+      label: Decision needed
+    validations:
+      required: true
+
+  - type: textarea
+    id: options
+    attributes:
+      label: Options considered
+    validations:
+      required: true
+
+  - type: textarea
+    id: recommendation
+    attributes:
+      label: Recommended option
+    validations:
+      required: true
+
+  - type: textarea
+    id: consequences
+    attributes:
+      label: Consequences and tradeoffs
+
+  - type: input
+    id: deadline
+    attributes:
+      label: Decision deadline
+      placeholder: YYYY-MM-DD
