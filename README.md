@@ -8,7 +8,7 @@
 **Sovereign Infrastructure Defense OS**
 
 ![GitHub Org](https://img.shields.io/badge/org-scutum--defense-1a1a2e?style=for-the-badge&logo=github)
-![Repos](https://img.shields.io/badge/repositories-5-blue?style=for-the-badge)
+![Repos](https://img.shields.io/badge/repositories-9-blue?style=for-the-badge)
 ![Security Policy](https://img.shields.io/badge/security-policy--enforced-critical?style=for-the-badge&logo=shield)
 ![Access](https://img.shields.io/badge/access-private-red?style=for-the-badge&logo=lock)
 
@@ -46,6 +46,10 @@ Scutum builds the operating system for sovereign infrastructure defense. We fuse
 |:--|:--|:--|
 | [`scutum-mvp`](https://github.com/scutum-defense/scutum-mvp) | Production MVP -- operator console, API, domain models | Next.js, Fastify, TypeScript, pnpm monorepo |
 | [`scutum-demo`](https://github.com/scutum-defense/scutum-demo) | Investor demo -- interactive fundraising artifact | Next.js, TypeScript, playback engine |
+| [`scutum-sdk`](https://github.com/scutum-defense/scutum-sdk) | Official TypeScript SDK for platform integration | TypeScript, tsup, vitest |
+| [`scutum-schemas`](https://github.com/scutum-defense/scutum-schemas) | Canonical schema registry -- events, entities, workflows | TypeScript, JSON Schema, AJV |
+| [`scutum-website`](https://github.com/scutum-defense/scutum-website) | Public marketing website | Next.js, Tailwind CSS |
+| [`scutum-brand`](https://github.com/scutum-defense/scutum-brand) | Brand assets, guidelines, templates | SVG, PNG, Markdown |
 | [`scutum-docs`](https://github.com/scutum-defense/scutum-docs) | Architecture, governance, ADRs, security baselines | Markdown, ADR format |
 | [`scutum-infra`](https://github.com/scutum-defense/scutum-infra) | Infrastructure-as-code, environments, policy automation | IaC modules, CI/CD pipelines |
 | [`.github`](https://github.com/scutum-defense/.github) | Org-wide standards, templates, workflows | GitHub Actions, issue templates |
