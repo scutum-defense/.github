@@ -108,8 +108,17 @@ Canonical schema registry. Versioned event models, entity types, workflow state 
 
 </td>
 </tr>
-<tr><td colspan="3"><h3>Platform Integration</h3></td></tr>
+<tr><td colspan="3"><h3>Platform Integration & Deployment</h3></td></tr>
 <tr>
+<td>
+
+**[scutum-event-kit](https://github.com/scutum-defense/scutum-event-kit)**
+
+Type-safe event bus with middleware pipeline, typed subscriptions, and the Scutum event protocol (12 event types).
+
+`event-bus` `messaging`
+
+</td>
 <td>
 
 **[scutum-sdk](https://github.com/scutum-defense/scutum-sdk)**
@@ -126,6 +135,20 @@ TypeScript SDK. Type-safe API client, SSE event streaming, authentication, and d
 Command-line interface. Platform health, incident inspection, audit trail queries, and schema/policy validation.
 
 `cli` `devops`
+
+</td>
+</tr>
+<tr>
+<td>
+
+**[scutum-helm](https://github.com/scutum-defense/scutum-helm)**
+
+Kubernetes Helm charts for sovereign single-tenant deployment. Network policies, security contexts, and sovereignty configuration.
+
+`helm` `kubernetes`
+
+</td>
+<td>
 
 </td>
 <td>
@@ -162,12 +185,12 @@ Command-line interface. Platform health, incident inspection, audit trail querie
 │    └──────────┘ └──────────┘ └──────────┘ └──────────┘ └──────────┘       │
 │                                                                              │
 │    ┌──────────────────────────────────────────────────────────────────┐     │
-│    │  schemas  ·  sdk  ·  cli  ·  Domain Ontology  ·  Event Bus      │     │
+│    │  event-kit  ·  schemas  ·  sdk  ·  cli  ·  Domain Ontology      │     │
 │    └──────────────────────────────────────────────────────────────────┘     │
 │                                                                              │
-│    Infrastructure                                                            │
+│    Infrastructure & Deployment                                               │
 │    ┌──────────────────────────────────────────────────────────────────┐     │
-│    │  PostgreSQL  ·  Redis  ·  Docker  ·  Sovereign Single-Tenant    │     │
+│    │  PostgreSQL · Redis · Docker · Helm · Sovereign Single-Tenant    │     │
 │    └──────────────────────────────────────────────────────────────────┘     │
 └──────────────────────────────────────────────────────────────────────────────┘
 ```
@@ -197,7 +220,9 @@ Command-line interface. Platform health, incident inspection, audit trail querie
 | **[scutum-twin](https://github.com/scutum-defense/scutum-twin)** | Public | Digital twin simulation | Apache-2.0 |
 | **[scutum-schemas](https://github.com/scutum-defense/scutum-schemas)** | Public | Canonical schema registry | Apache-2.0 |
 | **[scutum-sdk](https://github.com/scutum-defense/scutum-sdk)** | Public | Platform integration SDK | Apache-2.0 |
+| **[scutum-event-kit](https://github.com/scutum-defense/scutum-event-kit)** | Public | Event bus and message protocol | Apache-2.0 |
 | **[scutum-cli](https://github.com/scutum-defense/scutum-cli)** | Public | Platform CLI | Apache-2.0 |
+| **[scutum-helm](https://github.com/scutum-defense/scutum-helm)** | Public | Sovereign deployment Helm charts | Apache-2.0 |
 | **scutum-mvp** | Private | Production command platform | Proprietary |
 | **scutum-infra** | Private | Infrastructure-as-code | Proprietary |
 | **scutum-demo** | Private | Investor demo artifact | Proprietary |
