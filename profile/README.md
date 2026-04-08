@@ -18,9 +18,9 @@
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
 ![Go](https://img.shields.io/badge/Go-00ADD8?style=for-the-badge&logo=go&logoColor=white)
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![Rust](https://img.shields.io/badge/Rust-000000?style=for-the-badge&logo=rust&logoColor=white)
+![Terraform](https://img.shields.io/badge/Terraform-844FBA?style=for-the-badge&logo=terraform&logoColor=white)
+![Kubernetes](https://img.shields.io/badge/Kubernetes-326CE5?style=for-the-badge&logo=kubernetes&logoColor=white)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)
-![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
 
 </div>
 
@@ -37,44 +37,44 @@ We build software that helps nations protect critical infrastructure. Scutum fus
   │ OT/SCADA│──┤     │ Engine  │        │ Action  │        │         │        │         │        │ Trail   │
   │ AIS     │──┤     │         │        │         │        │         │        │         │        │         │
   │ ADS-B   │──┘     └─────────┘        └─────────┘        └─────────┘        └─────────┘        └─────────┘
-                                                                               scutum-twin        scutum-audit-chain
-             scutum-detect             scutum-policy-engine                                      
+                     scutum-detect       scutum-policy       scutum-policy      scutum-twin       scutum-audit
+                                         -engine             -engine                               -chain
 ```
 
 <br>
 
 ## Open Source
 
-We publish the building blocks of sovereign infrastructure defense under Apache 2.0.
+We publish the building blocks of sovereign infrastructure defense under Apache 2.0. Each library is independently versioned, tested, and security-scanned.
 
 <table>
 <tr><td colspan="3"><h3>Detection & Security</h3></td></tr>
 <tr>
-<td width="30%">
+<td width="33%">
 
 **[scutum-detect](https://github.com/scutum-defense/scutum-detect)**
 
-Declarative threat detection rules engine. Threshold, sequence, and correlation matchers with MITRE ATT&CK mapping.
+Declarative threat detection rules engine. Threshold, sequence, and correlation matchers with built-in rules across perimeter, airspace, OT, and maritime.
 
 `rules-engine` `mitre-attack`
 
 </td>
-<td width="30%">
+<td width="33%">
 
 **[scutum-policy-engine](https://github.com/scutum-defense/scutum-policy-engine)**
 
-Policy-as-code evaluation. Operational, safety, and sovereignty policies with allow/deny/warn/require_approval verdicts.
+Policy-as-code evaluation. Operational, safety, and sovereignty constraints with deny/require_approval/warn/allow verdicts.
 
-`policy-as-code` `opa`
+`policy-as-code` `safety`
 
 </td>
-<td width="30%">
+<td width="33%">
 
-**[scutum-audit-chain](https://github.com/scutum-defense/scutum-audit-chain)**
+**[scutum-safe-logging](https://github.com/scutum-defense/scutum-safe-logging)**
 
-Tamper-evident, SHA-256 hash-chained audit trails. Cryptographic integrity verification for command records.
+Structured safe logging with SafeArg/UnsafeArg distinction. Prevents sensitive data leakage with automatic field detection guards.
 
-`hash-chain` `sha256`
+`safe-logging` `security`
 
 </td>
 </tr>
@@ -84,7 +84,7 @@ Tamper-evident, SHA-256 hash-chained audit trails. Cryptographic integrity verif
 
 **[scutum-twin](https://github.com/scutum-defense/scutum-twin)**
 
-Digital twin simulation framework. Validate proposed actions against infrastructure models before execution.
+Digital twin simulation framework. Validate proposed actions against infrastructure models. Outcomes: safe, unsafe, uncertain, degraded.
 
 `digital-twin` `simulation`
 
@@ -93,22 +93,22 @@ Digital twin simulation framework. Validate proposed actions against infrastruct
 
 **[scutum-geo](https://github.com/scutum-defense/scutum-geo)**
 
-Geospatial primitives. Zone classification, corridor deviation analysis, threat corridor projection, haversine calculations.
+Geospatial primitives. Zone classification, corridor deviation, threat corridor projection, haversine, point-in-polygon.
 
 `geospatial` `gis`
 
 </td>
 <td>
 
-**[scutum-schemas](https://github.com/scutum-defense/scutum-schemas)**
+**[scutum-audit-chain](https://github.com/scutum-defense/scutum-audit-chain)**
 
-Canonical schema registry. Versioned event models, entity types, workflow state machines, geospatial primitives.
+Tamper-evident SHA-256 hash-chained audit trails. Cryptographic verification and tamper detection for command records.
 
-`json-schema` `ontology`
+`hash-chain` `cryptography`
 
 </td>
 </tr>
-<tr><td colspan="3"><h3>Platform Integration & Deployment</h3></td></tr>
+<tr><td colspan="3"><h3>Platform & Integration</h3></td></tr>
 <tr>
 <td>
 
@@ -119,6 +119,27 @@ Type-safe event bus with middleware pipeline, typed subscriptions, and the Scutu
 `event-bus` `messaging`
 
 </td>
+<td>
+
+**[scutum-schemas](https://github.com/scutum-defense/scutum-schemas)**
+
+Canonical schema registry. 15 versioned schemas across events, entities, workflows, and geospatial primitives.
+
+`json-schema` `ontology`
+
+</td>
+<td>
+
+**[scutum-codegen](https://github.com/scutum-defense/scutum-codegen)**
+
+Contract-first code generation. Generates TypeScript interfaces + clients and Python Pydantic models from schema definitions.
+
+`codegen` `contracts`
+
+</td>
+</tr>
+<tr><td colspan="3"><h3>Developer Tools</h3></td></tr>
+<tr>
 <td>
 
 **[scutum-sdk](https://github.com/scutum-defense/scutum-sdk)**
@@ -132,28 +153,34 @@ TypeScript SDK. Type-safe API client, SSE event streaming, authentication, and d
 
 **[scutum-cli](https://github.com/scutum-defense/scutum-cli)**
 
-Command-line interface. Platform health, incident inspection, audit trail queries, and schema/policy validation.
+Command-line interface. Platform health, incident inspection, audit trail queries, and validation.
 
 `cli` `devops`
 
 </td>
+<td>
+
+**[scutum-terraform-provider](https://github.com/scutum-defense/scutum-terraform-provider)**
+
+Terraform provider for managing platform resources — zones, corridors, detection rules, policies — as infrastructure-as-code.
+
+`terraform` `go`
+
+</td>
 </tr>
+<tr><td colspan="3"><h3>Deployment</h3></td></tr>
 <tr>
 <td>
 
 **[scutum-helm](https://github.com/scutum-defense/scutum-helm)**
 
-Kubernetes Helm charts for sovereign single-tenant deployment. Network policies, security contexts, and sovereignty configuration.
+Kubernetes Helm charts for sovereign single-tenant deployment. Network policies, security contexts, sovereignty configuration.
 
 `helm` `kubernetes`
 
 </td>
-<td>
-
-</td>
-<td>
-
-</td>
+<td></td>
+<td></td>
 </tr>
 </table>
 
@@ -162,37 +189,37 @@ Kubernetes Helm charts for sovereign single-tenant deployment. Network policies,
 ## Architecture
 
 ```
-┌──────────────────────────────────────────────────────────────────────────────┐
-│                         SCUTUM COMMAND PLATFORM                             │
-│                                                                              │
-│    Operator Surfaces                                                         │
-│    ┌────────────┐  ┌────────────┐  ┌────────────┐  ┌────────────┐          │
-│    │  Command   │  │  Decision  │  │  Twin      │  │  Audit &   │          │
-│    │  Console   │  │  Workspace │  │  Validation│  │  Sovereignty│          │
-│    └─────┬──────┘  └─────┬──────┘  └─────┬──────┘  └─────┬──────┘          │
-│          └───────────────┴───────────────┴───────────────┘                   │
-│                               SSE Event Bus                                  │
-│          ┌───────────────┬───────────────┬───────────────┐                   │
-│    ┌─────┴─────┐   ┌─────┴─────┐   ┌─────┴─────┐   ┌─────┴─────┐         │
-│    │  Signal   │   │  AI COA   │   │  Approval  │   │  Audit    │         │
-│    │  Ingestion│   │  Engine   │   │  Service   │   │  Logger   │         │
-│    └───────────┘   └───────────┘   └───────────┘   └───────────┘         │
-│                                                                              │
-│    Core Libraries (open source)                                              │
-│    ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────┐       │
-│    │ detect   │ │ policy-  │ │ audit-   │ │  twin    │ │   geo    │       │
-│    │          │ │ engine   │ │ chain    │ │          │ │          │       │
-│    └──────────┘ └──────────┘ └──────────┘ └──────────┘ └──────────┘       │
-│                                                                              │
-│    ┌──────────────────────────────────────────────────────────────────┐     │
-│    │  event-kit  ·  schemas  ·  sdk  ·  cli  ·  Domain Ontology      │     │
-│    └──────────────────────────────────────────────────────────────────┘     │
-│                                                                              │
-│    Infrastructure & Deployment                                               │
-│    ┌──────────────────────────────────────────────────────────────────┐     │
-│    │  PostgreSQL · Redis · Docker · Helm · Sovereign Single-Tenant    │     │
-│    └──────────────────────────────────────────────────────────────────┘     │
-└──────────────────────────────────────────────────────────────────────────────┘
+┌───────────────────────────────────────────────────────────────────────────────┐
+│                          SCUTUM COMMAND PLATFORM                             │
+│                                                                               │
+│    Operator Surfaces                                                          │
+│    ┌────────────┐  ┌────────────┐  ┌────────────┐  ┌────────────┐           │
+│    │  Command   │  │  Decision  │  │  Twin      │  │  Audit &   │           │
+│    │  Console   │  │  Workspace │  │  Validation│  │  Sovereignty│           │
+│    └─────┬──────┘  └─────┬──────┘  └─────┬──────┘  └─────┬──────┘           │
+│          └───────────────┴───────────────┴───────────────┘                    │
+│                            Event Bus (event-kit)                              │
+│          ┌───────────────┬───────────────┬───────────────┐                    │
+│    ┌─────┴─────┐   ┌─────┴─────┐   ┌─────┴─────┐   ┌─────┴─────┐          │
+│    │  Signal   │   │  AI COA   │   │  Approval  │   │  Audit    │          │
+│    │  Ingestion│   │  Engine   │   │  Service   │   │  Logger   │          │
+│    └───────────┘   └───────────┘   └───────────┘   └───────────┘          │
+│                                                                               │
+│    Core Libraries (open source · Apache-2.0)                                  │
+│    ┌────────┐ ┌────────┐ ┌────────┐ ┌────────┐ ┌────────┐ ┌────────┐      │
+│    │ detect │ │ policy │ │ audit  │ │  twin  │ │  geo   │ │  safe  │      │
+│    │        │ │ engine │ │ chain  │ │        │ │        │ │ logging│      │
+│    └────────┘ └────────┘ └────────┘ └────────┘ └────────┘ └────────┘      │
+│                                                                               │
+│    ┌─────────────────────────────────────────────────────────────────┐       │
+│    │  event-kit · schemas · codegen · sdk · cli · terraform-provider │       │
+│    └─────────────────────────────────────────────────────────────────┘       │
+│                                                                               │
+│    Infrastructure & Deployment                                                │
+│    ┌─────────────────────────────────────────────────────────────────┐       │
+│    │  PostgreSQL · Redis · Docker · Helm · Sovereign Single-Tenant   │       │
+│    └─────────────────────────────────────────────────────────────────┘       │
+└───────────────────────────────────────────────────────────────────────────────┘
 ```
 
 <br>
@@ -201,31 +228,49 @@ Kubernetes Helm charts for sovereign single-tenant deployment. Network policies,
 
 | | |
 |:--|:--|
-| **Sovereign by default** | All data, compute, and audit trails remain within national boundaries. Single-tenant. No shared infrastructure. No data exfiltration. |
-| **Human-in-the-loop** | No autonomous action without explicit operator authorization. AI recommends, humans decide. Every approval is identity-bound. |
+| **Sovereign by default** | All data, compute, and audit trails remain within national boundaries. Single-tenant. No shared infrastructure. |
+| **Human-in-the-loop** | No autonomous action without explicit operator authorization. AI recommends, humans decide. |
 | **Auditable by design** | Every signal, decision, approval, and execution produces a hash-chained, policy-labeled, tamper-evident record. |
+| **Safe by construction** | No live OT write path without twin validation. Policy engine enforces safety constraints at every boundary. |
 | **One platform** | One ontology, one workflow engine, one release train. No sector-specific forks. Extend through schemas, not branches. |
-| **Safe by construction** | No live OT write path without twin validation. Policy engine enforces safety constraints at every decision boundary. |
+| **Open core** | Defense primitives are open source. Product platform is proprietary. Partners build on our published libraries. |
+
+<br>
+
+## Engineering Standards
+
+Every public repository ships with:
+
+- CI/CD pipeline (GitHub Actions)
+- Security scanning (CodeQL, dependency review, TruffleHog)
+- Test suite (vitest / Go test)
+- Automated dependency updates (Renovate)
+- Code ownership (CODEOWNERS)
+- Semantic versioning and changelog
+- Apache-2.0 license
 
 <br>
 
 ## Repository Map
 
-| Repository | Visibility | Purpose | License |
+| Repository | Language | Purpose | License |
 |:--|:--|:--|:--|
-| **[scutum-detect](https://github.com/scutum-defense/scutum-detect)** | Public | Threat detection rules engine | Apache-2.0 |
-| **[scutum-geo](https://github.com/scutum-defense/scutum-geo)** | Public | Geospatial defense primitives | Apache-2.0 |
-| **[scutum-audit-chain](https://github.com/scutum-defense/scutum-audit-chain)** | Public | Cryptographic audit trails | Apache-2.0 |
-| **[scutum-policy-engine](https://github.com/scutum-defense/scutum-policy-engine)** | Public | Policy-as-code evaluation | Apache-2.0 |
-| **[scutum-twin](https://github.com/scutum-defense/scutum-twin)** | Public | Digital twin simulation | Apache-2.0 |
-| **[scutum-schemas](https://github.com/scutum-defense/scutum-schemas)** | Public | Canonical schema registry | Apache-2.0 |
-| **[scutum-sdk](https://github.com/scutum-defense/scutum-sdk)** | Public | Platform integration SDK | Apache-2.0 |
-| **[scutum-event-kit](https://github.com/scutum-defense/scutum-event-kit)** | Public | Event bus and message protocol | Apache-2.0 |
-| **[scutum-cli](https://github.com/scutum-defense/scutum-cli)** | Public | Platform CLI | Apache-2.0 |
-| **[scutum-helm](https://github.com/scutum-defense/scutum-helm)** | Public | Sovereign deployment Helm charts | Apache-2.0 |
-| **scutum-mvp** | Private | Production command platform | Proprietary |
-| **scutum-infra** | Private | Infrastructure-as-code | Proprietary |
-| **scutum-demo** | Private | Investor demo artifact | Proprietary |
+| **[scutum-detect](https://github.com/scutum-defense/scutum-detect)** | TypeScript | Threat detection rules engine | Apache-2.0 |
+| **[scutum-policy-engine](https://github.com/scutum-defense/scutum-policy-engine)** | TypeScript | Policy-as-code evaluation | Apache-2.0 |
+| **[scutum-safe-logging](https://github.com/scutum-defense/scutum-safe-logging)** | TypeScript | Structured safe logging | Apache-2.0 |
+| **[scutum-twin](https://github.com/scutum-defense/scutum-twin)** | TypeScript | Digital twin simulation | Apache-2.0 |
+| **[scutum-geo](https://github.com/scutum-defense/scutum-geo)** | TypeScript | Geospatial defense primitives | Apache-2.0 |
+| **[scutum-audit-chain](https://github.com/scutum-defense/scutum-audit-chain)** | TypeScript | Cryptographic audit trails | Apache-2.0 |
+| **[scutum-event-kit](https://github.com/scutum-defense/scutum-event-kit)** | TypeScript | Event bus and protocol | Apache-2.0 |
+| **[scutum-schemas](https://github.com/scutum-defense/scutum-schemas)** | TypeScript | Canonical schema registry | Apache-2.0 |
+| **[scutum-codegen](https://github.com/scutum-defense/scutum-codegen)** | TypeScript | Contract-first code generation | Apache-2.0 |
+| **[scutum-sdk](https://github.com/scutum-defense/scutum-sdk)** | TypeScript | Platform integration SDK | Apache-2.0 |
+| **[scutum-cli](https://github.com/scutum-defense/scutum-cli)** | TypeScript | Platform CLI | Apache-2.0 |
+| **[scutum-terraform-provider](https://github.com/scutum-defense/scutum-terraform-provider)** | Go | Terraform provider | Apache-2.0 |
+| **[scutum-helm](https://github.com/scutum-defense/scutum-helm)** | Helm | Sovereign deployment charts | Apache-2.0 |
+| **scutum-mvp** | TypeScript | Production command platform | Proprietary |
+| **scutum-infra** | IaC | Infrastructure-as-code | Proprietary |
+| **scutum-demo** | TypeScript | Investor demo artifact | Proprietary |
 
 <br>
 
